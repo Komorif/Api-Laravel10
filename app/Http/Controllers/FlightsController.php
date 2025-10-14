@@ -8,43 +8,28 @@ use App\Http\Requests\UpdateFlightsRequest;
 
 class FlightsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function show_gagarin_flight(Flights $flights)
     {
-        //
+        return $flights;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreFlightsRequest $request)
+    public function show_flight(Flights $flights)
     {
-        //
+        return $flights;
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Flights $flights)
+    public function store_space_flights(StoreFlightsRequest $request)
     {
-        //
+        return 'store_space_flights';
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateFlightsRequest $request, Flights $flights)
+    public function show_space_flights(Flights $flights)
     {
-        //
+        return $flights;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Flights $flights)
+    public function store_book_flight(StoreFlightsRequest $request)
     {
-        //
-    }
+        return 'store_book_flight';
+    }    
 }
