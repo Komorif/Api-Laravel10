@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Flights extends Model
+class Crew extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        "flights_number",
-        "destination",
-        "launch_date",
-        "seats_available",
+        'name',
+        'role',
     ];
 }

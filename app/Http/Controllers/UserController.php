@@ -7,43 +7,29 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\LoginUserRequest;
 
+
+use App\Http\Resources\RegisterUserResource;
+use App\Http\Resources\LoginUserResource;
 use Auth;
 
 class UserController extends Controller
 {
+    // Регистрация
     public function register(StoreUserRequest $request)
     {
-        $user = User::create($request->all());
-
-        return response()->json([
-                'data' => [
-                    'user' => [
-                        'name' => $user->first_name. " ".$user->last_name. " ".$user->patronymic,
-                        'email' => $user->email,
-                    ],
-                    'code' => 201,
-                    'message' => 'Пользователь создан',
-                ]
-            ], 201);
+        $user = new User($request->all());
+        $user->save();
+        return response(new RegisterUserResource($user), 201);
     }
 
+    // Авторизация
     public function login(LoginUserRequest $request)
     {
         if (Auth::attempt($request->only("email", "password"))) {
             $user = Auth::user();
             $user->tokens()->delete();
 
-            return response()->json([
-                'data' => [
-                    'user' => [
-                        'id' => $user->id,
-                        'name' => $user->first_name. " ".$user->last_name. " ".$user->patronymic,
-                        'birth_date' => $user->birth_date,
-                        'email' => $user->email,
-                    ],
-                    'token' => $user->createToken("token")->plainTextToken
-                ],
-            ], 200);
+            return response(new LoginUserResource($user), 200);
         }
         
         return response()->json([
@@ -51,6 +37,7 @@ class UserController extends Controller
         ], 401);
     }
 
+    // Выход
     public function logout()
     {
         Auth::user()->currentAccessToken()->delete();
