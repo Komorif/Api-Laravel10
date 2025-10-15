@@ -4,3 +4,6 @@ Regional Stage of the Professional Skills Championship "Professionals" in 2025
 [here he is](materials/gaid.pdf)
 
 ![диаграмма](materials/diagram.png)
+
+[Установка OpenServer](materials/Установка%20через%20OpenServer.md)
+[Настройка проекта](materials/Настройка%20проекта.md)
