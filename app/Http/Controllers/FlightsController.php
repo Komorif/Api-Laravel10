@@ -6,16 +6,20 @@ use App\Models\Flights;
 use App\Http\Requests\StoreFlightsRequest;
 use App\Http\Requests\UpdateFlightsRequest;
 
+use App\Http\Resources\GagarinFlightResource;
+
 class FlightsController extends Controller
 {
     public function show_gagarin_flight(Flights $flights)
     {
-        return $flights;
+        return response(new GagarinFlightResource($flights), 200);
     }
 
     public function show_flight(Flights $flights)
     {
         return $flights;
+
+        //return FlightResource::collection(Flights::all());
     }
 
     public function store_space_flights(StoreFlightsRequest $request)
