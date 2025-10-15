@@ -3,4 +3,4 @@ Regional Stage of the Professional Skills Championship "Professionals" in 2025
 
 [here he is](materials/gaid.pdf)
 
-![[Pasted image materials/diagram.png]]
+![диаграмма](materials/diagram.png)
