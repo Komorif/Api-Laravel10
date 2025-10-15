@@ -20,6 +20,14 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/logout', [UserController::class, 'logout']);
     Route::get('/gagarin-flight', [FlightsController::class, 'show_gagarin_flight']);
 
+
+
+    // Лунные миссии
+    Route::post('/lunar-missions', [MissionsController::class, 'store']);
+
+
+
+    
     // Рейсы
     Route::get('/flight', [FlightsController::class, 'show_flight']);
 
@@ -30,7 +38,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     //Route::get('/search', [InfoController::class, 'show']);
 
     // Лунные миссии
-    Route::post('/lunar-missions', [MissionsController::class, 'store']);
+    //Route::post('/lunar-missions', [MissionsController::class, 'store']); - сверху уже есть
 
     //Route::get('/lunar-missions', [LunarMissionController::class, 'show']);
     //Route::delete('/lunar-missions/{mission_id}', [LunarMissionController::class, 'destroy']);
