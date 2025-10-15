@@ -1,6 +1,6 @@
 (1) Заходишь в папку OSPanel/home (где скачан openserver), создаешь папку (на конце .local) после чего пкм по open server panel, затем интерфейс командной строки
 
-![[Pasted image 20251012131618.png]]
+![](images/20251012131618.png)
 
 (2) В cmd OSP пишем
 
@@ -11,7 +11,7 @@ composer create-project "laravel/laravel:^10.0" .
 
 (3) Включаем в OSP нужную версию PHP
 
-![[Pasted image 20251012132206.png]]
+![](images/20251012132206.png)
 
 (4) Из любого другого проекта в OSPanel/home берем папку .osp только с файлом project.ini
 
@@ -24,15 +24,15 @@ public_dir = {base_dir}\public
 
 (5) Перезапускаем сервер
 
-![[Pasted image 20251012132533.png]]
+![](images/20251012132533.png)
  
 (6) Проект появился можно производить с ним взаимодействия (например для проверки открыть его в браузере)
 
-![[Pasted image 20251012132622.png]]
+![](images/20251012132622.png)
 
 (7) Включаем нужную версию MySQL
 
-![[Pasted image 20251012133339.png]]
+![](images/20251012133339.png)
 
 (8) Подключение PhpmyAdmin 
 
