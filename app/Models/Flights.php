@@ -10,7 +10,7 @@ class Flights extends Model
     use HasFactory;
 
     protected $fillable = [
-        "flights_number",
+        "flight_number",
         "destination",
         "launch_date",
         "seats_available",
