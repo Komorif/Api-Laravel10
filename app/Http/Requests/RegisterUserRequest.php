@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSpaceFlightsRequest extends FormRequest
+class RegisterUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,12 @@ class StoreSpaceFlightsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'flight_number'=>['required','string'],
-            'destination'=>['required','string'],
-            'launch_date'=>['required','date'],
-            'seats_available'=>['required','int'],
+            'first_name'=> ['required', 'string'],
+            'last_name'=> ['required', 'string'],
+            'patronymic'=> ['required', 'string'],
+            'email'=> ['required', 'email', 'unique:users'],
+            'password'=> ['required', 'string'],
+            'birth_date'=> ['required', 'date'],
         ];
     }
 }

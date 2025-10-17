@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatemissionsRequest extends FormRequest
+class StoreBookFlightRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class UpdatemissionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'flight_number'=>['required','string']
         ];
     }
 }

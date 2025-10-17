@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Flights extends Model
+class Flight extends Model
 {
     use HasFactory;
 
@@ -15,4 +15,8 @@ class Flights extends Model
         "launch_date",
         "seats_available",
     ];
+
+    public function users() {
+        return $this->belongsToMany(User::class);
+    }
 }

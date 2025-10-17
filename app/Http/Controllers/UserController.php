@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Http\Requests\LoginUserRequest;
 
+use App\Http\Requests\RegisterUserRequest;
+use App\Http\Requests\LoginUserRequest;
 
 use App\Http\Resources\RegisterUserResource;
 use App\Http\Resources\LoginUserResource;
@@ -15,7 +15,7 @@ use Auth;
 class UserController extends Controller
 {
     // Регистрация
-    public function register(StoreUserRequest $request)
+    public function register(RegisterUserRequest $request)
     {
         $user = new User($request->all());
         $user->save();

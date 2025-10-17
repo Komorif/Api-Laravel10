@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Missions;
-use App\Http\Requests\StoremissionsRequest;
-use App\Http\Requests\UpdatemissionsRequest;
+use App\Models\Mission;
+use App\Http\Requests\StoreMissionRequest;
+use App\Http\Requests\UpdateMissionRequest;
 
-use App\Http\Resources\MissionsResource;
+use App\Http\Resources\MissionResource;
 
-class MissionsController extends Controller
+class MissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class MissionsController extends Controller
     }
 
     // Добавление новой миссии
-    public function store(StoremissionsRequest $request)
+    public function store(StoreMissionRequest $request)
     {
         // Продолжить тут!!  StoremissionsRequest (тоже доделать)
 
@@ -58,7 +58,7 @@ class MissionsController extends Controller
     }
 
     // Добовление новой миссии
-    public function show(missions $missions)
+    public function show(mission $mission)
     {
         //
     }
@@ -66,7 +66,7 @@ class MissionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatemissionsRequest $request, missions $missions)
+    public function update(UpdateMissionRequest $request, mission $mission)
     {
         //
     }
@@ -74,7 +74,7 @@ class MissionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(missions $missions)
+    public function destroy(mission $mission)
     {
         //
     }
