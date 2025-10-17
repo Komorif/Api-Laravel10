@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UpdateUserRequest;
 
 use App\Http\Requests\RegisterUserRequest;
 use App\Http\Requests\LoginUserRequest;

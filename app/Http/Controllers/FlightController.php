@@ -17,12 +17,12 @@ use Auth;
 
 class FlightController extends Controller
 {
-    public function show_gagarin_flight(Flight $flight)
+    public function get_gagarin_flight(Flight $flight)
     {
         return response(new GagarinFlightResource($flight), 200);
     }
 
-    public function index_flight(Flight $flight)
+    public function get_flight(Flight $flight)
     {
         return response(new FlightResource($flight),200);
     }

@@ -19,22 +19,33 @@ Route::post('/authorization', [UserController::class, 'login']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/logout', [UserController::class, 'logout']);
 
-    Route::get('/api/gagarin-flight', [FlightController::class, 'show_gagarin_flight']);
+    // Статичные данные
+    Route::get('/api/gagarin-flight', [FlightController::class, 'get_gagarin_flight']);
+    Route::get('/flight', [FlightController::class, 'get_flight']);
 
     // Рейсы
-    Route::get('/flight', [FlightController::class, 'index_flight']);
     Route::post('/space-flights', [FlightController::class, 'store_space_flights']);
     Route::get('/space-flights', [FlightController::class, 'index_space_flights']);
     Route::post('/book-flight', [FlightController::class, 'store_book_flight']);
 
-
-    // Лунные миссии
+    // Миссии
+    // Добавление новой миссии
     Route::post('/lunar-missions', [MissionController::class, 'store']);
 
-    //Route::get('/lunar-missions', [MissionController::class, 'show']);
+    // Получение информации о миссиях
+    //Route::get('/lunar-missions', [MissionController::class, 'index']);
+    
+    // Удаление миссии по ее id
     //Route::delete('/lunar-missions/{mission_id}', [MissionController::class, 'destroy']);
+    
+    // Редактирование миссии по ее id
     //Route::path('/lunar-missions/{mission_id}', [MissionController::class, 'update']);
-    //Route::post('/lunar-watermark', [MissionController::class, 'watermarkStore']);
+    
+    // Поиск по миссиям и пилотам
+    //Route::get('/search', [MissionController::class, 'search']);
 
-    //Route::get('/search', [InfoController::class, 'show']);
+
+    
+    // Изображение с водяным знаком <- Разрешаю себе не делать
+    //Route::post('/lunar-watermark', [MissionController::class, 'watermarkStore']);
 });
