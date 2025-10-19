@@ -55,25 +55,96 @@ class MissionController extends Controller
         ], 201);
     }
 
-    // Добовление новой миссии
-    public function show(mission $mission)
+    // Обновление миссии
+    public function update(string $id, StoreMissionRequest $request)
     {
-        //
+        $mission = Mission::where('id', $id)->first();
+
+        if ($mission == null)
+        {
+            return response()->json([
+                'code'=> 422,
+                'message'=> 'Validation error',
+                'errors'=>[
+                    'flight_number'=> ["id can not be blank"],
+                ]
+            ]);
+        }
+
+        $mission = Mission::where('id', $id)->where("user_id", Auth::user()->id)->first();
+        
+        if ($mission == null)
+        {
+            return response()->json([
+                'code'=> 403,
+                'errors'=>[
+                    'flight_number'=> ["Недоступен для тебя"],
+                ]
+            ]);
+        }
+
+        Crew::where("mission_id", $mission->id)->delete(); // Удаляем из экипажа id нашей миссии
+
+        foreach ($request->mission['spacecraft']['crew'] as $crew) {
+            $crew_model = new Crew($crew);
+            $crew_model->mission_id = $mission->id;
+            $crew_model->save();
+        }
+
+        Mission::where('id', $id)->where('user_id', Auth::user()->id)->update([
+            'name' => $request->mission['name'],
+            
+            'launch_date' => $request->mission['launch_details']['launch_date'],
+            'launch_site_name' => $request->mission['launch_details']['launch_site']['name'],
+            'launch_latitude' => $request->mission['launch_details']['launch_site']['location']['latitude'],
+            'launch_longitude' => $request->mission['launch_details']['launch_site']['location']['longitude'],
+            
+            'landing_date' => $request->mission['landing_details']['landing_date'],
+            'landing_site_name' => $request->mission['landing_details']['landing_site']['name'],
+            'landing_latitude' => $request->mission['landing_details']['landing_site']['coordinates']['latitude'],
+            'landing_longitude' => $request->mission['landing_details']['landing_site']['coordinates']['longitude'],
+            
+            'command_module' => $request->mission['spacecraft']['command_module'],
+            'lunar_module' => $request->mission['spacecraft']['lunar_module']
+        ]);
+
+        return response()->json([
+            'data'=> [
+                "code"=> 200,
+                "message"=> "Миссия обновлена"
+            ]
+        ], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateMissionRequest $request, mission $mission)
+    // Удаление миссии
+    public function destroy(string $id)
     {
-        //
-    }
+        $mission = Mission::where('id', $id)->first();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(mission $mission)
-    {
-        //
+        if ($mission == null)
+        {
+            return response()->json([
+                'code'=> 422,
+                'message'=> 'Validation error',
+                'errors'=>[
+                    'flight_number'=> ["id can not be blank"],
+                ]
+            ]);
+        }
+
+        $mission = Mission::where('id', $id)->where("user_id", Auth::user()->id)->first();
+
+        if ($mission == null)
+        {
+            return response()->json([
+                'code'=> 403,
+                'errors'=>[
+                    'flight_number'=> ["Недоступен для тебя"],
+                ]
+            ]);
+        }
+
+        Mission::where("id", $id)->where("user_id", Auth::user()->id)->delete();
+        return response(status: 204);
     }
 }

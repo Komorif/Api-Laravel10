@@ -29,21 +29,15 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/book-flight', [FlightController::class, 'store_book_flight']);
 
     // Миссии
-    // Добавление новой миссии
     Route::post('/lunar-missions', [MissionController::class, 'store']);
     Route::get('/lunar-missions', [MissionController::class, 'index']);
-    
-    // Удаление миссии по ее id
-    //Route::delete('/lunar-missions/{mission_id}', [MissionController::class, 'destroy']);
-    
-    // Редактирование миссии по ее id
-    //Route::path('/lunar-missions/{mission_id}', [MissionController::class, 'update']);
+    Route::delete('/lunar-missions/{mission_id}', [MissionController::class, 'destroy']);
+    Route::put('/lunar-missions/{mission_id}', [MissionController::class, 'update']);
     
     // Поиск по миссиям и пилотам
-    //Route::get('/search', [MissionController::class, 'search']);
+    Route::get('/search', [MissionController::class, 'search']);
 
 
-    
     // Изображение с водяным знаком <- Разрешаю себе не делать
     //Route::post('/lunar-watermark', [MissionController::class, 'watermarkStore']);
 });
