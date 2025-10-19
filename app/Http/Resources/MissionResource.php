@@ -40,7 +40,7 @@ class MissionResource extends JsonResource
                   "spacecraft"=> [
                     "command_module"=> $this->command_module,
                     "lunar_module"=> $this->lunar_module,
-                    "crew"=> CrewResource::collection($this->crew),
+                    "crew"=> CrewResource::collection($this->crews),
                   ]
                 ]
           ];

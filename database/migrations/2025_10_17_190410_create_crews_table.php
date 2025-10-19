@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('crews', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
+            $table->foreignId("mission_id")->constrained("missions")->onDelete("cascade");
             $table->string("role");
             $table->timestamps();
         });

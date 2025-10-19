@@ -31,9 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     // Миссии
     // Добавление новой миссии
     Route::post('/lunar-missions', [MissionController::class, 'store']);
-
-    // Получение информации о миссиях
-    //Route::get('/lunar-missions', [MissionController::class, 'index']);
+    Route::get('/lunar-missions', [MissionController::class, 'index']);
     
     // Удаление миссии по ее id
     //Route::delete('/lunar-missions/{mission_id}', [MissionController::class, 'destroy']);
