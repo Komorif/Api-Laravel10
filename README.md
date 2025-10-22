@@ -5,5 +5,5 @@ Regional Stage of the Professional Skills Championship "Professionals" in 2025
 
 ![диаграмма](materials/diagram.png)
 
-[Установка OpenServer](materials/Установка%20через%20OpenServer.md)
-[Настройка проекта](materials/Настройка%20проекта.md)
+[Установка OpenServer](materials/3_module/Установка%20через%20OpenServer.md)
+[Настройка проекта](materials/3_module/Настройка%20проекта.md)
