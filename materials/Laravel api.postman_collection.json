@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "f1354db1-58ca-4ec0-b8f9-fdbde181044d",
+		"name": "Laravel api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43700798",
+		"_collection_link": "https://komori-3524424.postman.co/workspace/Komori's-Workspace~9b1b2499-1153-487c-80ee-a9a1622998e5/collection/43700798-f1354db1-58ca-4ec0-b8f9-fdbde181044d?action=share&source=collection_link&creator=43700798"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"first_name\": \"Alexeya\",\r\n \"last_name\": \"Smirnov\",\r\n \"patronymic\": \"Ivanovich\",\r\n \"email\": \"komori@prof.ru\",\r\n \"password\": \"paSSword1\",\r\n \"birth_date\": \"2001-02-15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/registration",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"komori@prof.ru\",\r\n \"password\": \"paSSword1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/authorization",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/ogout",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"ogout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gagarin-flight",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"first_name\": \"Alexeya\",\r\n \"last_name\": \"Smirnov\",\r\n \"patronymic\": \"Ivanovich\",\r\n \"email\": \"user@prof.ru\",\r\n \"password\": \"paSSword1\",\r\n \"birth_date\": \"2001-02-15\"\r\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/gagarin-flight",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"gagarin-flight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post space-flights",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"flight_number\": \"flight_four\",\r\n \"destination\": \"Юпsdfsadfрв\",\r\n \"launch_date\": \"2025-05-15\",\r\n \"seats_available\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/space-flights",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"space-flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get space-flights",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/space-flights",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"space-flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"flight_number\": \"flight_three\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/book-flight",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"book-flight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/flight",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"flight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post lunar-missions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mission\": {\r\n    \"name\": \"Аполлон-12\",\r\n    \"launch_details\": {\r\n      \"launch_date\": \"1972-12-07\",\r\n      \"launch_site\": {\r\n        \"name\": \"Космический центр имен и Кеннеди\",\r\n        \"location\": {\r\n          \"latitude\": 28.5721,\r\n          \"longitude\": -80.648\r\n        }\r\n      }\r\n    },\r\n    \"landing_details\": {\r\n      \"landing_date\": \"1972-12-19\",\r\n      \"landing_site\": {\r\n        \"name\": \"Телец-Литтров\",\r\n        \"coordinates\": {\r\n          \"latitude\": 20.1908,\r\n          \"longitude\": 30.7717\r\n        }\r\n      }\r\n    },\r\n    \"spacecraft\": {\r\n      \"command_module\": \"Америка\",\r\n      \"lunar_module\": \"Челленджер\",\r\n      \"crew\": [\r\n        {\r\n          \"name\": \"Евгений Сернан\",\r\n          \"role\": \"Командир\"\r\n        },\r\n        {\r\n          \"name\": \"Харрисон Шмитт\",\r\n          \"role\": \"Пилот лунного модуля\"\r\n        },\r\n        {\r\n          \"name\": \"Рональд Эванс\",\r\n          \"role\": \"Пилот командного модуля\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/lunar-missions",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"lunar-missions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get lunar-missions",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "delte lunnar-missions",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update lunar-missions",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": ""
+		},
+		{
+			"key": "TOKEN",
+			"value": ""
+		}
+	]
+}
