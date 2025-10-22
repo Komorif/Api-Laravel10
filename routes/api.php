@@ -12,6 +12,8 @@ use \App\Http\Controllers\MissionController;
 // Контроллер для всех полетов
 use \App\Http\Controllers\FlightController;
 
+use \App\Http\Controllers\SearchController;
+
 Route::post('/registration', [UserController::class, 'register']);
 Route::post('/authorization', [UserController::class, 'login']);
 
@@ -35,7 +37,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('/lunar-missions/{mission_id}', [MissionController::class, 'update']);
     
     // Поиск по миссиям и пилотам
-    Route::get('/search', [MissionController::class, 'search']);
+    Route::get('/search', [SearchController::class, 'search']);
 
 
     // Изображение с водяным знаком <- Разрешаю себе не делать
